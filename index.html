@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <div class="contenedor" id="niveles">
+            <h1>Adivina el numero</h1>
+            <hr>
+            <h2>Selecciona el nivel</h2>
+            <div id="botones">
+                <button id="facil">Facil</button>
+                <button id="normal">Normal</button>
+                <button id="dificil">Dificil</button>
+            </div>
+        </div>
+        <div class="contenedor" id="juego">
+            <h1>Adivina el numero</h1>
+            <hr>
+            <h2 id="mensaje-nivel">Ingrese un numero en un rango del 1 al 100</h2>
+            <div id="entrada">
+                <input class="item" id="num" type="number" placeholder="Ingresar numero" />
+                <button class="item" id="intentar">Intentar</button>
+            </div>
+            <p id="pista">Mas alto</p>
+            <p id="intentos">
+                <span>Intentos: </span>
+                <span id="num-intentos">5</span></p>
+            <div id="fin">
+                <h2 id="mensaje-final"></h2>
+                <button id="reiniciar">REINICIAR</button>
+            </div>
+        </div>
+    </body>
+</html>
