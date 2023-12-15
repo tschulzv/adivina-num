@@ -7,7 +7,7 @@ const MSJE_NIVEL = document.getElementById("mensaje-nivel");
 const JUEGO = document.getElementById("juego");
 const BOTON = document.getElementById("intentar");
 const PISTA = document.getElementById("pista");
-const DISP= document.getElementById("num-intentos");
+const DISP= document.getElementById("intentos");
 const REINICIAR = document.getElementById("reiniciar");
 const FIN = document.getElementById("fin");
 
@@ -37,12 +37,11 @@ function jugar(r){
     MSJE_NIVEL.innerHTML = `Ingrese un numero en un rango del 1 al ${r}`;
     NIVELES.style.display = "none";
     JUEGO.style.display = "block";
-
     NUMERO = genNumero();
 }
 
 function genNumero(){
-    return Math.floor(Math.random() * rango);
+    return Math.floor(Math.random() * rango)+1;
 }
 
 function leerIntento(){
@@ -58,17 +57,19 @@ function intentar(){
         return
     }
     else{
-
         if(INTENTO>NUMERO){
             PISTA.innerHTML = "Mas Bajo";
             PISTA.style.display = 'block';
+            PISTA.style.color='#d60606';
+
         }else{
             PISTA.innerHTML = "Mas Alto";
             PISTA.style.display = 'block';
+            PISTA.style.color='#27b857';
         }
         intentos--; 
+        DISP.innerHTML='Intentos: '+ intentos;
     }
-    DISP.innerHTML=intentos;
     if (intentos==0){
         terminar(`Perdiste! El numero era ${NUMERO}`)
     }
@@ -81,6 +82,8 @@ function terminar(mensaje){
     let contenedor = document.getElementById('mensaje-final');
     contenedor.innerHTML = mensaje;
     FIN.style.display = "block";
+    PISTA.style.display='none';
+    DISP.style.display='none';
     REINICIAR.addEventListener("click", ()=>{
         location.reload();
     });
